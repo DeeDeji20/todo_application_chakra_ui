@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import {Heading} from '@chakra-ui/react'
+import {VStack, IconButton} from '@chakra-ui/react'
+import {FaSun, FaMoon} from 'react-icons/fa'
+import AddTodo from './components/AddTodo';
+import TodoList from './components/TodoList';
+import { useState, useEffect } from 'react'
 
 function App() {
+
+  const initialTodos = [
+    {
+      id: 1,
+      body: "read journal"
+    },
+    {
+      id: 2,
+      body: "sleep well"
+    }
+  ]
+  
+  const [todos, setTodos] = useState(initialTodos)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <VStack p={4}>
+        <IconButton icon = {<FaSun/>} isRound='true' size='lg' alignSelf='flex-end' />
+        <Heading mb='g' fontWeight='extrabold' bgGradient='linear(to-r, pink.500, blue.200, pink.300)'bgClip='text' >
+          Todo Application
+        </Heading>
+        <TodoList todos ={todos}/>
+        <AddTodo/>
+      </VStack>
+
     </div>
   );
 }
