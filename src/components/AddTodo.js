@@ -7,8 +7,8 @@ const AddTodo = () => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <HStack>
-        <Input placeholder= "Enter a todo" variant="filled" />
+      <HStack mt= "8">
+        <Input placeholder= "Enter a todo" variant="filled"/>
         <Button colorScheme="pink" px="8" type='submit'>Add Todo</Button>
       </HStack>
     </form>

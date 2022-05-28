@@ -20,6 +20,13 @@ function App() {
   
   const [todos, setTodos] = useState(initialTodos)
 
+  const deleteTodo = (id)=>{
+    const newTodos = todos.filter(todo =>{
+      return todo.id !== id;
+    })
+    setTodos(newTodos)
+  }
+
   return (
     <div className="App">
       <VStack p={4}>
@@ -27,7 +34,7 @@ function App() {
         <Heading mb='g' fontWeight='extrabold' bgGradient='linear(to-r, pink.500, blue.200, pink.300)'bgClip='text' >
           Todo Application
         </Heading>
-        <TodoList todos ={todos}/>
+        <TodoList todos ={todos} deleteTodo= {deleteTodo}/>
         <AddTodo/>
       </VStack>
 
