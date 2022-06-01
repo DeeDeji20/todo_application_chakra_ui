@@ -4,7 +4,7 @@ import {FaTrash} from 'react-icons/fa'
 const TodoList = (props) => {
   const {todos, deleteTodo} = props;
 
-  if(todos.length){
+  if(!todos.length){
     return (
       <Badge colorScheme="green" p="4" m= "6">No todos</Badge>
     )
